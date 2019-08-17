@@ -106,6 +106,9 @@ if(isset($_POST['register_button'])){
             $username = $username . "_" . $i;
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
         }
+
+        //profile picture assignment
+        $profile_pic = "";
     }
 }
 ?>
