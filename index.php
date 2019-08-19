@@ -11,7 +11,7 @@ require 'config/config.php';
         <link rel="stylesheet" href="">
     </head>
     <body>
-        aaa
+        Hello <?php echo $_SESSION['username']; ?>
 
     </body>
 </html>

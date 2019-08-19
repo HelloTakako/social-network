@@ -1,6 +1,7 @@
 <?php
 require 'config/config.php';
 require 'includes/form_handlers/register_handler.php';
+require 'includes/form_handlers/login_handler.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +11,26 @@ require 'includes/form_handlers/register_handler.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register | Social Network Application</title>
+    <link rel="stylesheet" href="assets/css/register_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+
+    <form action="" method="POST">
+        <input type="email" name="log_email" placeholder="Email Address" value="<?php
+        if(isset($_SESSION['log_email'])){
+            echo $_SESSION['log_email'];
+        }
+        ?>" required>
+        <br/>
+        <input type="password" name="log_password" placeholder="Password">
+        <br/>
+        <?php if(in_array("Email or password was incorrect<br/>", $error_array)) echo "Email or password was incorrect<br/>"; ?>
+        <input type="submit" name="login_button" value="Login">
+        <br/>
+        
+    </form>
+
     <form action="register.php" method="POST">
         <input type="text" name="reg_fname" placeholder="First Name" value="<?php
         if(isset($_SESSION['reg_fname'])){
