@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost", "root", "test", "social-network");
+$con = mysqli_connect("localhost", "root", "test", "social_network");
 
 if(mysqli_connect_errno()){
     echo "Failed to connect: " . mysqli_connect_errno();
@@ -108,7 +108,22 @@ if(isset($_POST['register_button'])){
         }
 
         //profile picture assignment
-        $profile_pic = "";
+        $rand = rand(1,2); //random number between 1 and 2
+
+        if($rand == 1)
+            $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
+        else if($rand == 2)
+            $profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
+
+        $query = mysqli_query($con, "INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `password`, `signup_date`, `profile_pic`, `num_posts`, `num_likes`, `user_closed`, `friend_array`) VALUES (NULL, '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',');");
+
+        array_push($error_array, "<span style='color:#14c800;'>You're all set! Go ahead and login!</span><br/>");
+
+        // clear session variables
+        $_SESSION['reg_fname'] = "";
+        $_SESSION['reg_lname'] = "";
+        $_SESSION['reg_email'] = "";
+        $_SESSION['reg_email2'] = "";
     }
 }
 ?>
@@ -119,7 +134,7 @@ if(isset($_POST['register_button'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register | DODO</title>
+    <title>Register | Social Network Application</title>
 </head>
 <body>
     <form action="register.php" method="POST">
@@ -166,6 +181,8 @@ if(isset($_POST['register_button'])){
         else if(in_array("Your password must be between 5 and 30 characters<br/>", $error_array)) echo "Your password must be between 5 and 30 characters<br/>"; ?>
 
         <input type="submit" name="register_button" value="Register">
+        <br/>
+        <?php if(in_array("<span style='color:#14c800;'>You're all set! Go ahead and login!</span><br/>", $error_array)) echo "<span style='color:#14c800;'>You're all set! Go ahead and login!</span><br/>"; ?>
     </form>
 </body>
 </html>
