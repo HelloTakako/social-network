@@ -1,6 +1,9 @@
 <?php
 include("includes/header.php");
 ?>
-        Hello <?php echo $_SESSION['username']; ?>
+            <div class="user_details column">
+                <a href="#"> <img src="<?php echo $user['profile_pic']; ?>"> </a>
+            </div>
+        </div>
     </body>
 </html>
