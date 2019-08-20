@@ -19,7 +19,18 @@ require 'includes/form_handlers/login_handler.php';
 
     <?php 
     
-    
+    if(isset($_POST['register_button'])){
+        echo '
+        <script>
+        $(document).ready(function(){
+            $("#first").hide();
+            $("#second").show();
+        });
+
+        </script>
+        
+        ';
+    }
 
     ?>
 
