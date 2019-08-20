@@ -36,7 +36,7 @@ else{
                 <a href="index.php">WaterColor</a>
             </div>  
             <nav>
-                <a href="#">
+                <a href="<?php echo $userLoggedIn; ?>">
                     <?php echo $user['first_name']; ?>
                 </a>
                 <a href="index.php"><i class="fas fa-home"></i></a>
