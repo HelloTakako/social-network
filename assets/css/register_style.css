@@ -1,3 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script|Varela+Round&display=swap');
+
 form {
     text-align: center;
+}
+
+html,body{
+    height: 100%;
+    min-height: 100%;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Varela Round', sans-serif;
+    color: #555;
+}
+
+.wrapper {
+    background-image: url("../images/backgrounds/bg02.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    min-width: 950px;
+}
+
+.login_box {
+    position: relative;
+    margin: 0 auto;
+    top: 7vh;
+    width: 35vw;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 5px;
+    opacity: 0.95;
+    text-align: center;
+}
+
+.login_header {
+    width: 100%;
+    height: 90px;
+    background-color: #f3965f;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.login_header h1{
+    margin: 0 auto;
+    font-family: 'Dancing Script', cursive;
+}
+
+input[type="submit"]{
+    background-color: #f3965f;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    margin: 5px 0 10px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+input[type="text"],input[type="email"],input[type="password"]{
+    border: 1px solid #e5e5e5;
+    margin: 5px 0 10px;
+    width: 70%;
+    height: 35px;
+    padding-left: 5px;
+    transition: 0.3s;
+}
+
+input[type="text"]:hover,input[type="email"]:hover,input[type="password"]:hover{
+    border-color:#f3965f;
+}
+#signup, #signin{
+    color: #555;
+}
+
+#second{
+    display: none;
 }
