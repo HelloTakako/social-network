@@ -92,10 +92,10 @@ class Post {
                     $days = " ago";
                 }
                 else if($interval->d == 1){
-                    $days = $interval->d . "day ago";
+                    $days = $interval->d . " day ago";
                 }
                 else{
-                    $days = $interval->d . "days ago";
+                    $days = $interval->d . " days ago";
                 }
 
                 if($interval->m ==1){
@@ -110,7 +110,7 @@ class Post {
                     $time_message = "Yesterday";
                 }
                 else{
-                    $time_message = $interval->d . "days ago";
+                    $time_message = $interval->d . " days ago";
                 }
             }
             else if($interval->h >= 1){
@@ -118,7 +118,7 @@ class Post {
                     $time_message = $interval->h . " hour ago";
                 }
                 else{
-                    $time_message = $interval->h . "hours ago";
+                    $time_message = $interval->h . " hours ago";
                 }
             }
             else if($interval->i >= 1){
@@ -126,7 +126,7 @@ class Post {
                     $time_message = $interval->i ." minute ago";
                 }
                 else{
-                    $time_message = $interval->i . "minutes ago";
+                    $time_message = $interval->i . " minutes ago";
                 }
             }
             else{
@@ -134,12 +134,12 @@ class Post {
                     $time_message = "Just now";
                 }
                 else{
-                    $time_message = $interval->s . "seconds ago";
+                    $time_message = $interval->s . " seconds ago";
                 }
             }
 
             $str .= "<div class='status_post'>
-                        <div class='post_profile-pics'>
+                        <div class='post_profile_pics'>
                             <img src='$profile_pic' width='50'>
                         </div>
 
