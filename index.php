@@ -93,5 +93,6 @@ if(isset($_POST['post'])){
             </script>
 
         </div>
+            </div>
     </body>
 </html>
