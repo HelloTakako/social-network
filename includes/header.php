@@ -33,7 +33,7 @@ else{
 
         <div class="top_bar">
             <div class="logo">
-                <a href="index.php">WaterColor</a>
+                <a href="index.php">WaterColors</a>
             </div>  
             <nav>
                 <a href="<?php echo $userLoggedIn; ?>">

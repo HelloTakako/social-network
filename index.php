@@ -34,7 +34,7 @@ if(isset($_POST['post'])){
                 </form>
 
                 <div class="posts_area"></div>
-                <img id="loading"  src="assets/images/icons/loading.svg">
+                <img id="loading" src="assets/images/icons/loading.gif" />
 
             </div>
 
@@ -51,18 +51,22 @@ if(isset($_POST['post'])){
                         cache: false,
 
                         success: function(data){
+                            
                             $('#loading').hide();
                             $('.posts_area').html(data);
                         }
                     });
 
+                    
+
                     $(window).scroll(function(){
+                        
                         var height = $('.posts_area').height(); //div containing posts
                         var scroll_top = $(this).scrollTop();
                         var page = $('.posts_area').find('.nextPage').val();
-                        var noMorePosts = $('posts_area').find('.noMorePosts').val();
+                        var noMorePosts = $('.posts_area').find('.noMorePosts').val();
 
-                        if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false'){
+                        if((window.innerHeight + window.scrollY + 1) >= document.body.scrollHeight && noMorePosts == 'false'){
                             $('#loading').show();
 
                         var ajaxReq = $.ajax({
@@ -72,6 +76,7 @@ if(isset($_POST['post'])){
                             cache: false,
 
                             success: function(response){
+                                
                                 $('.posts_area').find('.nextPage').remove(); //removes current .nextpage
                                 $('.posts_area').find('.noMorePosts').remove(); //removes current .nextpage
 
@@ -80,8 +85,10 @@ if(isset($_POST['post'])){
                             }
                         });
 
-                        }
-                    });
+                        } // end if
+
+                        return false;
+                    }); // end $(window).scroll(function())
                 });
             </script>
 
