@@ -59,11 +59,14 @@ if(isset($_POST['post_message'])){
             <?php 
             if($user_to == "new"){
                 echo "Select the friend you would like to message <br><br>";
-                echo "To: <input type='text' >";
+                ?>
+                To: <input type='text' onkeyup='getUsers(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Name' autocomplete='off' id='search_text_input'>
+                
+                <?php
                 echo "<div class='results'></div>";
             }
             else {
-                echo "<textarea name='message_body' id='message_textare' placeholder='Write your message'></textarea>";
+                echo "<textarea name='message_body' id='message_textarea' placeholder='Write your message'></textarea>";
                 echo "<input type='submit' name='post_message' class='info' id='message_submit' value='Send'>";
             }
             ?>
@@ -77,8 +80,8 @@ if(isset($_POST['post_message'])){
 
         </div>
 
-    <div class="user_details" id="conversations">
-        <h4>Conversations</h4>
+    <div class="user_details_column" id="conversations">
+        <h4>Messages</h4>
         <div class="loaded_conversations">
             <?php echo $message_obj->getConvos(); ?>
         </div>

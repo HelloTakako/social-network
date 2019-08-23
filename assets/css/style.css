@@ -280,4 +280,53 @@ textarea:focus{
     max-height: 400px;
     overflow: scroll;
     margin-bottom: 10px; 
+    padding: 20px;
+}
+
+.loaded_conversations{
+    max-height: 250px;
+    overflow: scroll;
+}
+
+#conversations {
+    background-color: #fff;
+    margin-left: 20px;
+    padding: 15px;
+}
+
+.user_found_messages{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.user_found_messages:hover{
+    background-color: #aaa;
+}
+
+.user_found_messages img{
+    width: 30px;
+    border-radius: 50%;
+    float: left;
+}
+
+/* #grey {
+    background-color: #aaa;
+} */
+
+.resultDisplay {
+    display: flex;
+    margin-top: 10px;
+}
+.resultDisplay a{
+    height: 60px;
+    width: 48%;
+    text-decoration: none;
+}
+.resultDisplay:hover{
+    background-color: #dfdfdf;
+}
+.liveSearchProfilePic img{
+    width: 70px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 50%;
 }

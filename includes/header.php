@@ -48,7 +48,7 @@ else{
                     <?php echo $user['first_name']; ?>
                 </a>
                 <a href="index.php"><i class="fas fa-home"></i></a>
-                <a href="#"><i class="far fa-envelope"></i></a>
+                <a href="messages.php"><i class="far fa-envelope"></i></a>
                 <a href="#"><i class="far fa-bell"></i></a>
                 <a href="requests.php"><i class="fas fa-user-friends"></i></a>
                 <a href="#"><i class="fas fa-cog"></i></a>
