@@ -240,3 +240,44 @@ textarea:focus{
 .profile_main_column{
     padding-top: 20px;
 }
+
+/* messages */
+
+.message{
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: inline-block;
+    color: #fff;
+}
+.message#blue{
+    background-color: #3498db;
+    float: right;
+    margin-bottom: 5px;
+}
+.message#green{
+    background-color: #2ecc71;
+    float: left;
+    margin-bottom: 5px;
+}
+
+#message_textarea{
+    width: 80%;
+}
+
+.info{
+    height: 50px;
+    width: 120px;
+    margin: 0;
+    position: absolute;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.loaded_messages{
+    height: 65%;
+    min-height: 300px;
+    max-height: 400px;
+    overflow: scroll;
+    margin-bottom: 10px; 
+}
