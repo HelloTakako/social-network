@@ -189,3 +189,42 @@ textarea:focus{
     color: #aaa;
     border: none;
 }
+
+.newsfeedPostOptions iframe{
+    border: 0px;
+    height: 17px;
+    width: 120px;
+}
+
+.comment_like{
+    background-color: #fff;
+    font-size: 14px;
+    padding: 0;
+    border: none;
+}
+
+.like_value{
+    display: inline;
+    font-size: 14px;
+}
+
+/* add friend button */
+.danger{
+    background-color: rgb(226, 73, 73);
+}
+.warning{
+    background-color: rgb(237, 132, 41);
+}
+.default{
+    background-color: #bdc3c7;
+}
+.success{
+    background-color: rgb(85, 211, 60);
+}
+.info{
+    background-color: #3498db;
+}
+.deep_blue{
+    background-color: #0043f0;
+}
+
