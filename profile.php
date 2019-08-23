@@ -7,7 +7,7 @@ if(isset($_GET['profile_username'])){
     $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
     $user_array = mysqli_fetch_array($user_details_query);
 
-    $num_friends = (substr_count($user_array['friend_array'], ",") - 1);
+    $num_friends = (substr_count($user_array['friend_array'], ",")) - 1;
 }
 
 if(isset($_POST['remove_friend'])){
@@ -17,7 +17,7 @@ if(isset($_POST['remove_friend'])){
 
 if(isset($_POST['add_friend'])){
     $user = new User($con, $userLoggedIn);
-    $user->SendRequest($username);
+    $user->sendRequest($username);
 }
 
 if(isset($_POST['respond_request'])){
@@ -31,7 +31,7 @@ if(isset($_POST['respond_request'])){
                 <div class="profile_info">
                     <p><?php echo "Posts: " . $user_array['num_posts']; ?></p>
                     <p><?php echo "Likes: " . $user_array['num_likes']; ?></p>
-                    <p><?php echo "Friends: " . $num_friends; ?></p>
+                    <p><?php echo "Friends: " . $num_friends ?></p>
                 </div>
 
                 <form action="<?php echo $username;?>" method="POST">
@@ -59,13 +59,46 @@ if(isset($_POST['respond_request'])){
                         }
                     }
                     
-                    ?>
-                
+                    ?>                
                 </form>
+
+                <input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post">
+                
             </div>
 
             <div class="main_column column">
                 <?php echo $username;?>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="profile_post" method="POST">
+                        <div class="form-group">
+                            <p>Post to the user's newsfeed!(your friends can see the post too.)</p>
+                            <textarea class="form-control" name="post_body"></textarea>
+                            <input type="hidden" name="user_from" value="<?php echo $userLoggedIn; ?>">
+                            <input type="hidden" name="user_to" value="<?php echo $username; ?>">
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" name="post_button" id="submit_profile_post">Post</button>
+                </div>
+                </div>
+            </div>
             </div>
 
         </div>

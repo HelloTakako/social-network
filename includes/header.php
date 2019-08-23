@@ -24,7 +24,9 @@ else{
         <!-- JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
-
+        <script src="assets/js/bootbox.min.js"></script>
+        <script src="assets/js/watercolor.js"></script>
+        
         <!-- CSS -->
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/51271ac046.js"></script>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 class User {
     private $user;
 	private $con;
@@ -46,12 +46,10 @@ class User {
         $query = mysqli_query($this->con, "SELECT user_closed FROM users WHERE username='$username'");
         $row = mysqli_fetch_array($query);
 
-        if($row['user_closed'] == 'yes'){
+        if($row['user_closed'] == 'yes')
             return true;
-        }
-        else {
+        else
             return false;
-        }
     }
 
     public function isFriend($username_to_check){
@@ -103,7 +101,7 @@ class User {
 
     }
 
-    public function SendRequest($user_to){
+    public function sendRequest($user_to){
         $user_from = $this->user['username'];
         $query = mysqli_query($this->con, "INSERT INTO friend_requests VALUES('', '$user_to', '$user_from')");
 
