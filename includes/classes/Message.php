@@ -75,7 +75,7 @@ class Message {
                 $time_message = $interval->y . " years ago"; // 1+ year ago
             }
         }
-        else if($interval-> m >= 1){
+        else if($interval->m >= 1){
             if($interval->d == 0){
                 $days = " ago";
             }
@@ -152,13 +152,13 @@ class Message {
             $user_found_obj = new User($this->con, $username);
             $latest_message_details = $this->getLatestMessage($userLoggedIn, $username);
 
-            $dots = (string($latest_message_details[1]) >= 12) ? "..." : "";
+            $dots = (strlen($latest_message_details[1]) >= 12) ? "..." : "";
             $split = str_split($latest_message_details[1], 12);
             $split = $split[0] . $dots;
 
             $return_string .= "<a href='messages.php?u=$username'> <div class='user_found_messages'>
                 <img src='" . $user_found_obj->getProfilePic() . "' style='border-radius:5px; margin-right: 5px;'>
-                " . $user_found_obj->getFirstAndLastName . "
+                " . $user_found_obj->getFirstAndLastName() . "
                 <span class='timestamp_smaller' id='grey'>" . $latest_message_details[2] . "</span>
                 <p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
                 </div>
