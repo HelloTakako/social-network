@@ -2,6 +2,7 @@
 require 'config/config.php';
 include("includes/classes/User.php");
 include("includes/classes/Post.php");
+include("includes/classes/Message.php");
 
 if(isset($_SESSION['username'])){
     $userLoggedIn = $_SESSION['username'];
@@ -26,12 +27,15 @@ else{
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/bootbox.min.js"></script>
         <script src="assets/js/watercolor.js"></script>
+        <script src="assets/js/jquery.Jcrop.js"></script>
+        <script src="assets/js/jcrop_bits.js"></script>
         
         <!-- CSS -->
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/51271ac046.js"></script>
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/jquery.Jcrop.css">
     </head>
     <body>
 

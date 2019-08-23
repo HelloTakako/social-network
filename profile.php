@@ -63,11 +63,20 @@ if(isset($_POST['respond_request'])){
                 </form>
 
                 <input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post">
+
+                <?php
+                if($userLoggedIn != $username){
+                    echo '<div class="profile_info_bottom">';
+                        echo $logged_in_user_obj->getMutualFriends($username) . "Mutual friends";
+                    echo '</div>';
+                }
+                ?>
                 
             </div>
 
-            <div class="main_column column">
-                <?php echo $username;?>
+            <div class="main_column profile_main_column column">
+                <div class="posts_area"></div>
+                <img id="loading" src="assets/images/icons/loading.gif" />
             </div>
 
             <!-- Modal -->
@@ -99,7 +108,65 @@ if(isset($_POST['respond_request'])){
                 </div>
                 </div>
             </div>
+
+                
             </div>
+
+            <script>
+                var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+                var profileUsername = '<?php echo $username; ?>';
+
+                $(document).ready(function(){
+                    $('#loading').show();
+
+                    // original ajax request for loading first posts
+                    $.ajax({
+                        url: "includes/handlers/ajax_load_profile_posts.php",
+                        type: "POST",
+                        data: "page=1&userLoggedIn=" + userLoggedIn + "&profileUsername=" + profileUsername,
+                        cache: false,
+
+                        success: function(data){
+                            
+                            $('#loading').hide();
+                            $('.posts_area').html(data);
+                        }
+                    });
+
+                    
+
+                    $(window).scroll(function(){
+                        
+                        var height = $('.posts_area').height(); //div containing posts
+                        var scroll_top = $(this).scrollTop();
+                        var page = $('.posts_area').find('.nextPage').val();
+                        var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+
+                        if((window.innerHeight + window.scrollY + 1) >= document.body.scrollHeight && noMorePosts == 'false'){
+                            $('#loading').show();
+
+                        var ajaxReq = $.ajax({
+                            url: "includes/handlers/ajax_load_profile_posts.php",
+                            type: "POST",
+                            data: "page=" + page + "&userLoggedIn=" + userLoggedIn + "&profileUsername=" + profileUsername,
+                            cache: false,
+
+                            success: function(response){
+                                
+                                $('.posts_area').find('.nextPage').remove(); //removes current .nextpage
+                                $('.posts_area').find('.noMorePosts').remove(); //removes current .nextpage
+
+                                $('#loading').hide();
+                                $('.posts_area').append(response);
+                            }
+                        });
+
+                        } // end if
+
+                        return false;
+                    }); // end $(window).scroll(function())
+                });
+            </script>
 
         </div>
     </body>

@@ -228,3 +228,15 @@ textarea:focus{
     background-color: #0043f0;
 }
 
+/* post delete button */
+.delete_button{
+    height: 22px;
+    width: 22px;
+    float: right;
+    border-radius: 3px;
+}
+
+/* profile page layout */
+.profile_main_column{
+    padding-top: 20px;
+}
