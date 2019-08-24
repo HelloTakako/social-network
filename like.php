@@ -51,10 +51,14 @@ else{
             $total_likes++;
             $query = mysqli_query($con, "UPDATE posts SET likes='$total_likes' WHERE id='$post_id'");
             $total_user_likes++;
-            $user_likes = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_liked'");
+            $user_liked = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_liked'");
             $insert_user = mysqli_query($con, "INSERT INTO likes VALUES('', '$userLoggedIn', '$post_id')");
 
             // insert notification
+            if($user_liked != $userLoggedIn){
+                $notification = new Notification($this->con, $userLoggedIn);
+                $notification->insertNotification($post_id, $user_liked, "like");
+            }
         }
         // unlike button
         if(isset($_POST['unlike_button'])){

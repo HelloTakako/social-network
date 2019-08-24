@@ -9,6 +9,7 @@ class Post {
 	}
 
     public function submitPost($body, $user_to) {
+        $date_added = date("Y-m-d H:i:s");
         $body = strip_tags($body); //removes html tags
         $body = mysqli_real_escape_string($this->con, $body);
 
@@ -33,6 +34,12 @@ class Post {
             // insert post
             $query = mysqli_query($this->con, "INSERT INTO posts VALUES(NULL, '$body', '$added_by', '$user_to', '$date_added', 'no', 'no', '0')");
             $returned_id = mysqli_insert_id($this->con);
+
+            // insert notification
+            if($user_to != 'none'){
+                $notification = new Notification($this->con, $added_by);
+                $notification->insertNotification($returned_id, $user_to, "profile_post");
+            }
 
             // update post count for user
             $num_posts = $this->user_obj->getNumPosts();

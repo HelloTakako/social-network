@@ -239,6 +239,7 @@ textarea:focus{
 /* profile page layout */
 .profile_main_column{
     padding-top: 20px;
+    width: 78%;
 }
 
 /* messages */
@@ -329,4 +330,18 @@ textarea:focus{
     float: left;
     margin-right: 10px;
     border-radius: 50%;
+}
+
+.tab-contents {
+    margin-top: 20px;
+}
+
+/* message dropdown */
+
+.dropdown_data_window {
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    top: 40px;
+    right: 10px;
 }
