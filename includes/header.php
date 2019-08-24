@@ -43,7 +43,20 @@ else{
         <div class="top_bar">
             <div class="logo">
                 <a href="index.php">WaterColors</a>
-            </div>  
+            </div>
+
+            <div class="search">
+            
+                <form action="search.php" method="GET" name="search_form">
+                    <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search users" autocomplete="off" id="search_text_input">
+
+                    <div class="button_holder">
+                        <img src="" alt="">
+                    </div>
+                </form>
+
+            </div>
+
             <nav>
                 <?php
                     // unread messages
@@ -53,6 +66,10 @@ else{
                     // unread notifications
                     $notifications = new Notification($con, $userLoggedIn);
                     $num_notifications = $notifications->getUnreadNumber();
+
+                    // unread friend requests
+                    $user_obj = new User($con, $userLoggedIn);
+                    $num_requests = $user_obj->getNumberOfFriendRequests();
                 ?>
 
                 <a href="<?php echo $userLoggedIn; ?>">
@@ -77,6 +94,10 @@ else{
                 </a>
                 <a href="requests.php">
                     <i class="fas fa-user-friends"></i>
+                    <?php
+                    if($num_requests > 0)
+                     echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
+                    ?>
                 </a>
                 <a href="#">
                     <i class="fas fa-cog"></i>
