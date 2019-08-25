@@ -56,6 +56,31 @@ nav a:hover{
     color: #fff;
 }
 
+#search_text_input{
+    width: 120px;
+    display: inline-block;
+    height: 30px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    padding: 0 10px;
+    margin: 0 auto;
+    position: relative;
+    right: 300px;
+}
+
+.button_holder {
+    float: right;
+    padding: 5px 10px;
+    background-color: #dadada;
+    height: 30px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    position: relative;
+    right: 300px;
+}
+
+/* contents */
+
 .wrapper{
     margin: 0 auto;
     top: 50px;
