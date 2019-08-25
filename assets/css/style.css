@@ -253,6 +253,15 @@ textarea:focus{
     background-color: #0043f0;
 }
 
+/* requests.php */
+form[action="requests.php"] {
+    margin-bottom: 20px;
+}
+#accept_button, #ignore_button{
+    border:none;
+    border-radius: 3px;
+}
+
 /* post delete button */
 .delete_button{
     height: 22px;

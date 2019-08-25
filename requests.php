@@ -15,7 +15,7 @@ include("includes/header.php");
                 $user_from = $row['user_from'];
                 $user_from_obj = new User($con, $user_from);
 
-                echo $user_from_obj->getFirstAndLastName() . " sent you a friend request.";
+                echo "<a href='/social-network/".$user_from_obj->getUsername()."'>" . $user_from_obj->getFirstAndLastName() . "</a> sent you a friend request.";
 
                 $user_from_friend_array = $user_from_obj->getFriendArray();
 
@@ -36,8 +36,8 @@ include("includes/header.php");
                 }
                 ?>
                 <form action="requests.php" method="POST">
-                    <input type="submit" name="accept_request<?php echo $user_from; ?>" id="accept_button" value="Accept">
-                    <input type="submit" name="ignore_request<?php echo $user_from; ?>" id="ignore_button" value="Ignore">
+                    <input type="submit" name="accept_request<?php echo $user_from; ?>" id="accept_button" class="success" value="Accept">
+                    <input type="submit" name="ignore_request<?php echo $user_from; ?>" id="ignore_button" class="default" value="Ignore">
                 </form>
 
                 <?php

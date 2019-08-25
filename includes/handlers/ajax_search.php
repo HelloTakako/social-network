@@ -26,7 +26,7 @@ if($query != ""){
         if($row['username'] != $userLoggedIn)
             $mutual_friends = $user->getMutualFriends($row['username']) . " friends in common";
         else
-            $mutual_friends == "";
+            $mutual_friends = "";
 
         echo "<div class='resultDisplay'>
                 <a href='" . $row['username'] . "' style='color: #1485BD'>  

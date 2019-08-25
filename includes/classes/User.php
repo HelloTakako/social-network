@@ -15,7 +15,7 @@ class User {
 
     public function getNumberOfFriendRequests(){
         $username = $this->user['username'];
-        $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$username'");
+        $query = mysqli_query($this->con, "SELECT * FROM friend_requests WHERE user_to='$username'");
         return mysqli_num_rows($query);
     }
 
@@ -109,7 +109,7 @@ class User {
 
     public function sendRequest($user_to){
         $user_from = $this->user['username'];
-        $query = mysqli_query($this->con, "INSERT INTO friend_requests VALUES('', '$user_to', '$user_from')");
+        $query = mysqli_query($this->con, "INSERT INTO friend_requests VALUES(NULL, '$user_to', '$user_from')");
 
     }
 

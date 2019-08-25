@@ -47,6 +47,7 @@ if(isset($_POST['post_message'])){
             <div class="profile_left">
                 <img src="<?php echo $user_array['profile_pic']; ?>" alt="profile picture">
                 <div class="profile_info">
+                    <p style="font-size: 18px; font-weight: bold;"><?php echo $username; ?></p>
                     <p><?php echo "Posts: " . $user_array['num_posts']; ?></p>
                     <p><?php echo "Likes: " . $user_array['num_likes']; ?></p>
                     <p><?php echo "Friends: " . $num_friends ?></p>
@@ -63,11 +64,12 @@ if(isset($_POST['post_message'])){
                     
                     if($userLoggedIn != $username){
                         
+                        
                         if($logged_in_user_obj->isFriend($username)){
                             echo '<input type="submit" name="remove_friend" class="danger" value="Remove Friend"><br>';
                         }
                         else if ($logged_in_user_obj->didReceiveRequest($username)){
-                            echo '<input type="submit" name="respond_request" class="warning" value="Remove Friend"><br>';
+                            echo '<input type="submit" name="respond_request" class="warning" value="Accept Request"><br>';
                         }
                         else if ($logged_in_user_obj->didSendRequest($username)){
                             echo '<input type="submit" name="" class="default" value="Request Sent"><br>';
