@@ -340,15 +340,21 @@ textarea:focus{
 
 .resultDisplay {
     display: flex;
-    margin-top: 10px;
 }
-.resultDisplay a{
-    height: 60px;
-    width: 48%;
-    text-decoration: none;
+.resultDisplay {
+    display: flex;
 }
 .resultDisplay:hover{
     background-color: #dfdfdf;
+}
+.resultDisplay a{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    width: 100%;
+}
+.resultDisplay p{
+    margin: 0;
 }
 .liveSearchProfilePic img{
     width: 70px;
@@ -356,6 +362,25 @@ textarea:focus{
     margin-right: 10px;
     border-radius: 50%;
 }
+.search_results {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    position: absolute;
+    left: 203px;
+    width: 271px;
+}
+
+/* search.php */
+.search_result {
+    display: flex;
+}
+
+.search_result>* {
+    padding: 10px;
+}
+
+/*  */
 
 .tab-contents {
     margin-top: 20px;
