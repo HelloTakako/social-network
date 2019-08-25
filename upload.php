@@ -42,7 +42,7 @@ if(isset($_FILES['image']['name'])){
 			die ('File didnt upload');
 		} else { 
 			$imgSrc= "assets/images/profile_pics/".$file_name; // the image to display in crop area
-			$msg= "Upload Complete!";  	//message to page
+			$msg= "New picture Uploaded!";  	//message to page
 			$src = $file_name;	 		//the file name to post from cropping form to the resize		
 		} 
 
@@ -159,7 +159,7 @@ if (isset($_POST['x'])){
 	    <p><b> <?=$msg?> </b></p>
 	    
 	    <form action="upload.php" method="post"  enctype="multipart/form-data">
-	        Upload something<br /><br />
+	        Upload new picture<br /><br />
 	        <input type="file" id="image" name="image" style="width:200px; height:30px; " /><br /><br />
 	        <input type="submit" value="Submit" style="width:85px; height:25px;" />
 	    </form><br /><br />
